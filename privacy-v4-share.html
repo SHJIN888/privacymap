@@ -1188,6 +1188,9 @@ html[data-theme="dark"] .acchip[aria-pressed="true"]{border-color:#BFDBFE}
   padding:2px 14px 26px 0;border-right:1px solid var(--line)}
 .ac-inner{position:sticky;top:16px}
 .ac-sidebar .csh{margin:0 0 6px;padding:0 8px 6px}
+.ac-sidebar .csh.accat{margin-top:14px;padding-top:11px;border-top:1px solid var(--line2)}
+.ac-sidebar .cspills+.ackindnote.acatnote{margin-top:10px}
+#acCat .cspill .pn{font-size:11.5px}
 .acmain{flex:1 1 auto;min-width:0;padding:2px 0 0 18px;border-top:0}
 .acmain .acgh:first-child{margin-top:0}
 .kdot{flex:0 0 auto;width:6px;height:6px;border-radius:50%;background:var(--muted2)}
@@ -1220,6 +1223,7 @@ html[data-theme="dark"] .acgh.common{border-bottom-color:var(--accent)}
 .actag.risk{border-color:var(--bad);color:var(--bad);background:var(--badbg)}
 .actag.jur{display:inline-flex;align-items:center;gap:4px;color:var(--muted);border-color:var(--line2)}
 .actag.jur .fl{width:12px;height:8.5px;margin:0}
+.actag.cat{display:inline-flex;align-items:center;gap:3px;color:var(--accent2);border-color:var(--line2);background:var(--alt)}
 .acchecks{margin:0 0 7px;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px}
 .acchecks li{position:relative;padding-left:13px;font-size:11.5px;line-height:1.65;color:var(--muted);word-break:keep-all}
 .acchecks li::before{content:"";position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:1px;background:var(--line3)}
@@ -1324,7 +1328,7 @@ html[data-theme="dark"] .acgh.common{border-bottom-color:var(--accent)}
 </style>
 </head>
 <body>
-<div id="share-stubs" hidden aria-hidden="true" style="display:none"><span id="ckScen"></span><span id="ckDesc"></span><span id="ckJur"></span><span id="ckAll"></span><span id="ckNone"></span><span id="ckFill"></span><span id="ckDone"></span><span id="ckTotal"></span><span id="ckReset"></span><span id="ckMd2"></span><span id="ckTxt2"></span><span id="ckPrint"></span><span id="ckWrap"></span><span id="dpDone"></span><span id="dpTotal"></span><span id="dpJur"></span><span id="dpAll"></span><span id="dpNone"></span><span id="dpMeta"></span><span id="dpFill"></span><span id="dpClear"></span><span id="dpMd"></span><span id="dpTxt"></span><span id="dpDoc"></span><span id="dpPrint"></span><span id="dpSumTop"></span><span id="dpWrap"></span><span id="dpSumBot"></span><span id="dpNote"></span><span id="acReset"></span><span id="acSum"></span><span id="acJur"></span><span id="acPre"></span><span id="acJurCount"></span><span id="acFn"></span><span id="acGv"></span><span id="acParts"></span><span id="acMd"></span><span id="acTxt"></span><span id="acCsv"></span><span id="acDoc"></span><span id="acPrint"></span><span id="acKindTotal"></span><span id="acKind"></span><span id="acWrap"></span><span id="acNote"></span><span id="aiReset"></span><span id="aiSum"></span><span id="aiStat"></span><span id="aiQ"></span><span id="aiMeta"></span><span id="aiHint"></span><span id="aiWrap"></span><span id="aiDuty"></span><span id="aiDutyProg"></span><span id="aiDutyMd"></span><span id="aiDutyReset"></span><span id="aiDutyWrap"></span><span id="aiNote"></span></div>
+<div id="share-stubs" hidden aria-hidden="true" style="display:none"><span id="ckScen"></span><span id="ckDesc"></span><span id="ckJur"></span><span id="ckAll"></span><span id="ckNone"></span><span id="ckFill"></span><span id="ckDone"></span><span id="ckTotal"></span><span id="ckReset"></span><span id="ckMd2"></span><span id="ckTxt2"></span><span id="ckPrint"></span><span id="ckWrap"></span><span id="dpDone"></span><span id="dpTotal"></span><span id="dpJur"></span><span id="dpAll"></span><span id="dpNone"></span><span id="dpMeta"></span><span id="dpFill"></span><span id="dpClear"></span><span id="dpMd"></span><span id="dpTxt"></span><span id="dpDoc"></span><span id="dpPrint"></span><span id="dpSumTop"></span><span id="dpWrap"></span><span id="dpSumBot"></span><span id="dpNote"></span><span id="acReset"></span><span id="acSum"></span><span id="acJur"></span><span id="acPre"></span><span id="acJurCount"></span><span id="acFn"></span><span id="acGv"></span><span id="acParts"></span><span id="acMd"></span><span id="acTxt"></span><span id="acCsv"></span><span id="acDoc"></span><span id="acPrint"></span><span id="acKindTotal"></span><span id="acKind"></span><span id="acCatTotal"></span><span id="acCat"></span><span id="acWrap"></span><span id="acNote"></span><span id="aiReset"></span><span id="aiSum"></span><span id="aiStat"></span><span id="aiQ"></span><span id="aiMeta"></span><span id="aiHint"></span><span id="aiWrap"></span><span id="aiDuty"></span><span id="aiDutyProg"></span><span id="aiDutyMd"></span><span id="aiDutyReset"></span><span id="aiDutyWrap"></span><span id="aiNote"></span></div>
 <header class="topbar">
   <div class="brand">
     <span class="mark" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2.4 3.4h11.2M2.4 8h11.2M2.4 12.6h6.4"/><path d="M6.6 1.8v11.6" opacity=".45"/></svg></span>
@@ -2653,19 +2657,28 @@ const AC_COND = Object.fromEntries((AC.conds||[]).map(c=>[c.id,c]));
 const ACNAME = Object.fromEntries(JUR.map(j=>[j.id,j.name]));
 const ACPART = {}; (AC.parts||[]).forEach(p=>{ ACPART[p.id]=p.name; });
 const AC_DEF = {jur:["kr","us","ca","eu","in"], fn:["sso","cookie","xfer"]};
-const acState = {jur:new Set(AC_DEF.jur), fn:new Set(AC_DEF.fn), part:"all", kind:"all"};
+const acState = {jur:new Set(AC_DEF.jur), fn:new Set(AC_DEF.fn), part:"all", kind:"all", cat:"all"};
 const ACKIND = [["all","전체 요건"],["common","글로벌 공통"],["branch","국가별 분기"]];
+const ACCATS = AC.cats || [];
+const AC_CATMAP = Object.fromEntries(ACCATS.map(c=>[c.id,c]));
+function acCatName(id){ const c=AC_CATMAP[id]; return c?(c.icon+" "+c.name):id; }
 
 function acEsc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 function acPri(p){ return (AC.pri||{})[p]||p; }
 function acSaved(){ return ACJUR.map(j=>j.id).filter(id=>acState.jur.has(id)); }
 function acMatch(r){ return !r.cond || !r.cond.length || r.cond.some(c=>acState.fn.has(c)); }
 function acPartOK(r){ return acState.part==="all" || r.part===acState.part; }
-function acPicked(){
+function acCatOK(r){ return acState.cat==="all" || r.cat===acState.cat; }
+function acBase(){
+  // 요건 구분(공통/분기)·분류 필터를 빼고 고른 국가·조건·담당 파트만 적용한 목록
   const sel = JUR.filter(j=>acState.jur.has(j.id));
   const common = sel.length ? AC.common.filter(r=>acMatch(r) && acPartOK(r)) : [];
   const branch = sel.length ? AC.branch.filter(r=>acState.jur.has(r.j) && acMatch(r) && acPartOK(r)) : [];
   return {sel:sel, common:common, branch:branch};
+}
+function acPicked(){
+  const b=acBase();
+  return {sel:b.sel, common:b.common.filter(acCatOK), branch:b.branch.filter(acCatOK)};
 }
 function acLive(r){ return !r.cond || !r.cond.length || r.cond.some(c=>acState.fn.has(c)); }
 function acAll(part){
@@ -2743,6 +2756,7 @@ function acSync(){
   });
   document.querySelectorAll("#acParts .acpart").forEach(b=>b.setAttribute("aria-pressed", b.dataset.part===acState.part?"true":"false"));
   document.querySelectorAll("#acKind .cspill").forEach(b=>b.setAttribute("aria-pressed", b.dataset.ackind===acState.kind?"true":"false"));
+  document.querySelectorAll("#acCat .cspill").forEach(b=>b.setAttribute("aria-pressed", b.dataset.accat===acState.cat?"true":"false"));
   const jc=$("#acJurCount"); if(jc) jc.textContent=acState.jur.size+"개국 선택";
 }
 
@@ -2780,7 +2794,8 @@ function acCardHTML(r){
      '<span class="actag">'+acEsc(ACPART[r.part]||r.part)+'</span>'+
      '<span class="actag '+r.pri+'">'+acEsc(acPri(r.pri))+'</span>'+
      (r.risk?'<span class="actag risk">고위험</span>':'')+
-     '<span class="actag jur">'+(r.k==="branch"?FLAG(r.j)+acEsc(ACNAME[r.j]||r.j):'글로벌 공통')+'</span></div>';
+     '<span class="actag jur">'+(r.k==="branch"?FLAG(r.j)+acEsc(ACNAME[r.j]||r.j):'글로벌 공통')+'</span>'+
+     '<span class="actag cat" title="법제 비교표 분류 — 비교표 탭에서 같은 분류로 대조">'+acEsc(acCatName(r.cat))+'</span></div>';
   h+='<ul class="acchecks">'+r.checks.map(x=>'<li>'+acEsc(x)+'</li>').join('')+'</ul>';
   h+='<div class="acmeta"><span class="ack">근거</span><span class="acct2">'+acEsc(r.cite)+'</span>'+
      '<span class="aclinks">'+(r.laws||[]).map(x=>lawChip(x[0],x[1]||"")).join('')+'</span></div>';
@@ -2795,19 +2810,43 @@ function acKindHTML(s){
     '<span class="pn">'+k[1]+'</span><span class="n">'+cnt[k[0]]+'</span></button>').join("");
   const t=$("#acKindTotal"); if(t) t.textContent=cnt.all+"건";
 }
+function acCatHTML(base){
+  const box=$("#acCat"); if(!box) return;
+  const all=base.common.concat(base.branch);
+  const cnt={};
+  all.forEach(r=>{ if(r.cat) cnt[r.cat]=(cnt[r.cat]||0)+1; });
+  const used=ACCATS.filter(c=>cnt[c.id]);
+  if(!used.length){
+    box.innerHTML='<button class="cspill" type="button" data-accat="all" aria-pressed="true"><span class="pn">전체</span><span class="n">0</span></button>';
+    const t0=$("#acCatTotal"); if(t0) t0.textContent="—";
+    return;
+  }
+  let h='<button class="cspill" type="button" data-accat="all" aria-pressed="'+(acState.cat==="all")+'">'+
+    '<span class="pn">전체 분류</span><span class="n">'+all.length+'</span></button>';
+  used.forEach(c=>{
+    h+='<button class="cspill" type="button" data-accat="'+c.id+'" title="법제 비교표의 ‘'+acEsc(c.name)+'’ 분류" aria-pressed="'+(acState.cat===c.id)+'">'+
+       '<span class="pn">'+acEsc(c.icon+" "+c.name)+'</span><span class="n">'+cnt[c.id]+'</span></button>';
+  });
+  box.innerHTML=h;
+  const t=$("#acCatTotal"); if(t) t.textContent=used.length+"개";
+}
 function renderAcct(){
   if(!$("#acct")) return;
   acSync();
   $("#acSum").innerHTML=acSumHTML();
+  const base=acBase();
   const s=acPicked();
   acKindHTML(s);
+  acCatHTML(base);
   const showC = acState.kind!=="branch", showB = acState.kind!=="common";
   let h="";
   if(!s.sel.length){
     h='<div class="acempty"><b>대상 국가를 하나 이상 고르세요.</b><br>국가와 기능 조건을 고르면 그 조건에 걸리는 법적·기획·개발 요건이 자동으로 추려집니다.</div>';
   }else{
     if(!s.common.length && !s.branch.length){
-      h='<div class="acempty"><b>이 조건 조합에는 해당하는 요건이 없습니다.</b><br>기능 조건을 하나 이상 켜거나 담당 파트 필터를 ‘전체’로 바꿔 보세요.</div>';
+      h=acState.cat!=="all"
+        ? '<div class="acempty"><b>이 분류에 해당하는 요건이 없습니다.</b><br>왼쪽 <b>법제 비교표 분류</b>를 ‘전체 분류’로 바꾸거나, 국가·기능 조건을 넓혀 보세요.</div>'
+        : '<div class="acempty"><b>이 조건 조합에는 해당하는 요건이 없습니다.</b><br>기능 조건을 하나 이상 켜거나 담당 파트 필터를 ‘전체’로 바꿔 보세요.</div>';
     }else{
       if(showC && s.common.length){
         h+='<div class="acgh common"><h3><span class="ack k-common">공통</span> 글로벌 공통 기준 — 단일 UI·정책으로 통일</h3>'+
@@ -2861,7 +2900,7 @@ function acHeadline(){
 function acMd(){
   const rows=acRows();
   let out="# 글로벌 통합계정 요건 명세서\n\n";
-  out+="- 기준일: "+AC.asof+"\n- "+acHeadline()+"\n- 대상 국가: "+acJurLine()+"\n- 서비스 조건: "+acCondLine()+"\n- 담당 파트 필터: "+(ACPART[acState.part]||"전체")+"\n\n";
+  out+="- 기준일: "+AC.asof+"\n- "+acHeadline()+"\n- 대상 국가: "+acJurLine()+"\n- 서비스 조건: "+acCondLine()+"\n- 담당 파트 필터: "+(ACPART[acState.part]||"전체")+"\n- 분류 필터: "+(acState.cat==="all"?"전체 분류":acCatName(acState.cat))+"\n\n";
   out+="## 글로벌 공통 기준 (단일 UI·정책으로 통일)\n\n"+acBanner().replace(/<\/?b>/g,"**")+"\n\n";
   let kind="";
   rows.forEach(x=>{
@@ -2871,7 +2910,7 @@ function acMd(){
     }
     const r=x.r;
     out+="### ["+r.id.toUpperCase()+"] "+r.title+"\n";
-    out+="- 구분: "+x.kind+(x.kind==="국가 분기"?" · "+x.jur:"")+" · 담당: "+(ACPART[r.part]||r.part)+" · 우선순위: "+acPri(r.pri)+(r.risk?" · 고위험":"")+"\n";
+    out+="- 구분: "+x.kind+(x.kind==="국가 분기"?" · "+x.jur:"")+" · 분류: "+acCatName(r.cat)+" · 담당: "+(ACPART[r.part]||r.part)+" · 우선순위: "+acPri(r.pri)+(r.risk?" · 고위험":"")+"\n";
     r.checks.forEach(c=>{ out+="- [ ] "+c+"\n"; });
     out+="- 근거: "+r.cite+"\n";
     if(r.note) out+="- 확인: "+r.note+"\n";
@@ -2884,14 +2923,14 @@ function acMd(){
 }
 function acTxt(){
   let out="글로벌 통합계정 요건 명세서 (기준일 "+AC.asof+")\n"+acHeadline()+"\n";
-  out+="대상 국가: "+acJurLine()+"\n서비스 조건: "+acCondLine()+"\n담당 파트: "+(ACPART[acState.part]||"전체")+"\n\n";
+  out+="대상 국가: "+acJurLine()+"\n서비스 조건: "+acCondLine()+"\n담당 파트: "+(ACPART[acState.part]||"전체")+"\n분류: "+(acState.cat==="all"?"전체 분류":acCatName(acState.cat))+"\n\n";
   out+="[글로벌 공통 기준] "+acBanner().replace(/<\/?b>/g,"").replace(/ — 아래.*$/,"")+"\n\n";
   let cur="";
   acRows().forEach(x=>{
     if(x.jur!==cur){ cur=x.jur; out+="■ "+(x.kind==="글로벌 공통"?"글로벌 공통":"국가 분기 · "+x.jur)+"\n"; }
     const r=x.r;
     out+="  · ["+r.id.toUpperCase()+"] "+r.title+"\n";
-    out+="      담당: "+(ACPART[r.part]||r.part)+" · "+acPri(r.pri)+(r.risk?" · 고위험":"")+"\n";
+    out+="      담당: "+(ACPART[r.part]||r.part)+" · "+acPri(r.pri)+(r.risk?" · 고위험":"")+" · 분류: "+acCatName(r.cat)+"\n";
     r.checks.forEach(c=>{ out+="      - "+c+"\n"; });
     out+="      (근거: "+r.cite+")\n";
     if(r.note) out+="      (확인: "+r.note+")\n";
@@ -2902,22 +2941,22 @@ function acTxt(){
 }
 function acCsv(){
   const q=s=>'"'+String(s==null?"":s).replace(/"/g,'""')+'"';
-  const lines=[["구분","국가","ID","요건명","담당 파트","우선순위","고위험","적용 국가","구현·이행 체크사항","근거 조문","공식 원문"]];
+  const lines=[["구분","국가","분류","ID","요건명","담당 파트","우선순위","고위험","적용 국가","구현·이행 체크사항","근거 조문","공식 원문"]];
   acRows().forEach(x=>{
     const r=x.r;
     const links=(r.laws||[]).map(y=>lawName(y[0],y[1]||"")+" "+lawURL(y[0],y[1]||"")).join(" | ");
-    lines.push([x.kind, x.kind==="국가 분기"?x.jur:"전 국가", r.id.toUpperCase(), r.title,
+    lines.push([x.kind, x.kind==="국가 분기"?x.jur:"전 국가", acCatName(r.cat), r.id.toUpperCase(), r.title,
                 ACPART[r.part]||r.part, acPri(r.pri), r.risk?"예":"",
                 (r.k==="branch"?ACNAME[r.j]:"전 국가"), r.checks.join(" / "), r.cite+(r.note?" [확인] "+r.note:""), links]);
   });
-  lines.push(["조건", acJurLine(), "", acCondLine(), "기준일 "+AC.asof, "", "", "", "", "", ""]);
+  lines.push(["조건", acJurLine(), "", "", acCondLine(), "기준일 "+AC.asof, "", "", "", "", "", ""]);
   return "\ufeff"+lines.map(r=>r.map(q).join(",")).join("\r\n");
 }
 function acDocHTML(){
   const s=acPicked(), n=acAll();
   let body='<h1>글로벌 통합계정 요건 명세서</h1>'+
     '<p class="m">기준일 '+acEsc(AC.asof)+' · '+acEsc(acHeadline())+'</p>'+
-    '<p class="m">대상 국가: '+acEsc(acJurLine())+'<br>서비스 조건: '+acEsc(acCondLine())+'<br>담당 파트 필터: '+acEsc(ACPART[acState.part]||"전체")+'</p>'+
+    '<p class="m">대상 국가: '+acEsc(acJurLine())+'<br>서비스 조건: '+acEsc(acCondLine())+'<br>담당 파트 필터: '+acEsc(ACPART[acState.part]||"전체")+'<br>분류 필터: '+acEsc(acState.cat==="all"?"전체 분류":acCatName(acState.cat))+'</p>'+
     '<h2>적용 기준(요약)</h2><p>'+acBanner()+'</p>';
   let cur="";
   acRows().forEach(x=>{
@@ -2925,7 +2964,7 @@ function acDocHTML(){
     const r=x.r;
     body+='<h3>['+r.id.toUpperCase()+'] '+acEsc(r.title)+'</h3>'+
       '<p class="m">'+acEsc(ACPART[r.part]||r.part)+' · '+acEsc(acPri(r.pri))+(r.risk?' · 고위험':'')+
-      ' · 적용: '+acEsc(r.k==="branch"?ACNAME[r.j]:"전 국가")+'</p><ul>'+
+      ' · 적용: '+acEsc(r.k==="branch"?ACNAME[r.j]:"전 국가")+' · 분류: '+acEsc(acCatName(r.cat))+'</p><ul>'+
       r.checks.map(c=>'<li>'+acEsc(c)+'</li>').join('')+'</ul>'+
       '<p class="m">근거: '+acEsc(r.cite)+(r.note?'<br>확인: '+acEsc(r.note):'')+'</p>';
   });
@@ -2956,8 +2995,14 @@ $("#acDoc").addEventListener("click",()=>{
 });
 $("#acPrint").addEventListener("click",()=>window.print());
 $("#acReset").addEventListener("click",()=>{
-  acState.jur=new Set(AC_DEF.jur); acState.fn=new Set(AC_DEF.fn); acState.part="all"; acState.kind="all";
-  renderAcct(); toast("조건을 기본값(주요 5개국 · SSO·쿠키·국외이전)으로 되돌렸습니다");
+  acState.jur=new Set(AC_DEF.jur); acState.fn=new Set(AC_DEF.fn); acState.part="all"; acState.kind="all"; acState.cat="all";
+  renderAcct(); toast("조건을 기본값(주요 5개국 · SSO·쿠키·국외이전 · 전체 분류)으로 되돌렸습니다");
+});
+/* 법제 비교표 분류 사이드바 — 클릭으로 목록 필터 */
+$("#acCat").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-accat]"); if(!b) return;
+  acState.cat=b.dataset.accat; renderAcct();
+  const top=$("#acWrap"); if(top) window.scrollTo({top:top.getBoundingClientRect().top+window.scrollY-70, behavior:"smooth"});
 });
 /* 구분(공통/분기) 사이드바 — 클릭으로 목록 필터 */
 $("#acKind").addEventListener("click",e=>{
