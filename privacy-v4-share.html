@@ -2065,7 +2065,8 @@ function renderCases(){
   else items.sort((a,b)=>b.d.localeCompare(a.d)||b.amtKRW-a.amtKRW);
   const sum=items.reduce((s,x)=>s+x.amtKRW,0);
   const mt=$("#csMeta");
-  if(mt) mt.innerHTML='<b>'+items.length+'</b>건 / 전체 '+CSITEMS.length+'건 · 합산 과징금 <b>'+csWon(sum)+'</b><span class="cssumx">(환산 참고치)</span>'+
+  const sumTxt = sum>0 ? '합산 과징금 <b>'+csWon(sum)+'</b><span class="cssumx">(환산 참고치)</span>' : '합산 과징금 <b>—</b><span class="cssumx">(금전 과징금 없는 관할)</span>';
+  if(mt) mt.innerHTML='<b>'+items.length+'</b>건 / 전체 '+CSITEMS.length+'건 · '+sumTxt+
     (state.csSort==="amount"?' · 과징금 큰 순':' · 최신 처분순');
   wrap.innerHTML = items.length
     ? items.map(csCardHTML).join("")
