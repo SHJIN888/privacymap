@@ -1242,6 +1242,78 @@ html[data-theme="dark"] .acgh.common{border-bottom-color:var(--accent)}
 .acfoot{margin:18px 0 0;padding:11px 0 0;border-top:1px solid var(--line2);font-size:11px;line-height:1.7;color:var(--muted2);word-break:keep-all}
 .acempty{border:1px dashed var(--line3);border-radius:var(--r);padding:26px 16px;text-align:center;color:var(--muted2);font-size:12px;line-height:1.7}
 .acempty b{color:var(--ink);font-weight:600}
+/* ---------- 표 보기(법제 비교표형 매트릭스) ---------- */
+.acview{display:flex;flex-wrap:wrap;margin:0 4px 0 0}
+.acview button{height:27px;padding:0 11px;border:1px solid var(--line);border-left-width:0;background:var(--panel);
+  font-size:11.5px;color:var(--muted);white-space:nowrap}
+.acview button:first-child{border-left-width:1px}
+.acview button:hover{background:var(--panel2);color:var(--ink)}
+.acview button[aria-pressed="true"]{background:var(--sel-bg);color:var(--ink);font-weight:600;border-color:#0F172A}
+html[data-theme="dark"] .acview button[aria-pressed="true"]{border-color:#BFDBFE}
+#acct.ac-wide{max-width:min(1560px,100%)}
+.actblwrap{overflow:auto;max-height:72vh;overscroll-behavior:contain;border:1px solid var(--line3);
+  border-radius:4px;background:var(--panel);margin:0 0 20px}
+.actblwrap.common{border-left:3px solid var(--accent)}
+.actblwrap.branch{border-left:3px solid var(--warn)}
+.actblwrap:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+table.actbl{border-collapse:separate;border-spacing:0;width:100%;font-size:11.5px;table-layout:fixed}
+table.actbl caption{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+table.actbl col.c-cat{width:132px}
+table.actbl col.c-meta{width:112px}
+table.actbl col.c-cite{width:250px}
+table.actbl thead th{position:sticky;top:0;z-index:5;padding:8px 9px;text-align:left;vertical-align:bottom;
+  background:var(--band);border-bottom:1px solid var(--line3);border-right:1px solid var(--line);
+  font-weight:600;font-size:11px;color:var(--ink)}
+table.actbl thead th:last-child{border-right:0}
+table.actbl thead th.actcorner{left:0;z-index:6;min-width:132px}
+table.actbl thead th .clbl{display:block;font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted2)}
+table.actbl thead th .chint{display:block;margin-top:2px;font-family:var(--sans);font-size:9.5px;font-weight:400;
+  letter-spacing:0;text-transform:none;color:var(--muted2)}
+table.actbl thead th .achn{display:inline-block;margin-left:5px;font-family:var(--mono);font-size:9.5px;font-weight:400;color:var(--muted2)}
+table.actbl thead th.actjh .jh{display:flex;align-items:center;gap:6px}
+table.actbl thead th.actjh .fl{width:15px;height:10.5px;margin:0}
+table.actbl thead th.actjh .jn{font-size:12px;font-weight:650;letter-spacing:-.1px;color:var(--ink)}
+table.actbl thead th.actjh .jl{display:block;margin-top:2px;font-family:var(--mono);font-size:9px;font-weight:400;color:var(--muted2);line-height:1.45}
+table.actbl tbody th{position:sticky;left:0;z-index:2;padding:9px;text-align:left;vertical-align:top;
+  background:var(--panel);border-bottom:1px solid var(--line2);border-right:1px solid var(--line3);font-weight:600}
+table.actbl tbody th .cic{display:block;margin:0 0 2px;font-size:13px;line-height:1.2}
+table.actbl tbody th .cnm{display:block;font-size:11.5px;line-height:1.4;font-weight:600;color:var(--ink);letter-spacing:-.1px;word-break:keep-all}
+table.actbl tbody th .ctn{display:block;margin-top:3px;font-family:var(--mono);font-size:9.5px;font-weight:400;color:var(--muted2)}
+table.actbl tbody td{padding:8px 9px;vertical-align:top;line-height:1.55;background:var(--panel);
+  border-bottom:1px solid var(--line2);border-right:1px solid var(--line2)}
+table.actbl tbody td:last-child{border-right:0}
+table.actbl tbody tr:last-child th,table.actbl tbody tr:last-child td{border-bottom:0}
+table.actbl tbody tr:nth-child(even) td,table.actbl tbody tr:nth-child(even) th{background:var(--alt)}
+table.actbl tbody td .tags{display:flex;gap:3px;flex-wrap:wrap}
+.ait{padding:0 0 0 7px;border-left:2px solid var(--warn)}
+.ait.common{border-left-color:var(--accent)}
+.ait+.ait{margin-top:9px}
+.ait .at{margin:0 0 3px}
+.ait .at .aid{display:inline-block;margin-right:4px;font-family:var(--mono);font-size:8.5px;font-weight:600;letter-spacing:.04em;color:var(--muted2);vertical-align:1px}
+.ait .at .h{font-size:11.5px;font-weight:650;line-height:1.45;color:var(--ink);letter-spacing:-.05px;word-break:keep-all;overflow-wrap:anywhere}
+.ait .tags{display:flex;gap:3px;flex-wrap:wrap;margin:0 0 4px}
+.ait .tags .actag{font-size:9px;padding:0 4px;line-height:1.6}
+.ait ul.chs{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:2px}
+.ait ul.chs li{position:relative;padding-left:9px;font-size:10.5px;line-height:1.55;color:var(--muted);word-break:keep-all;overflow-wrap:anywhere}
+.ait ul.chs li::before{content:"";position:absolute;left:1px;top:6px;width:3px;height:3px;border-radius:1px;background:var(--line3)}
+.ait .csrc{margin:4px 0 0;font-size:9.5px;line-height:1.5;color:var(--muted2);word-break:break-word}
+.ait .csrc b{font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;color:var(--muted2);font-weight:600}
+.ait .clks{display:flex;gap:3px;flex-wrap:wrap;margin:3px 0 0}
+.ait .clks .aclink{font-size:9px;padding:0 4px}
+.ait .cnt2{margin:3px 0 0;font-size:9.5px;line-height:1.5;color:var(--muted2);word-break:keep-all}
+.ait .cnt2 b{color:var(--warn);font-weight:600}
+.actnone{display:block;padding:4px 0;text-align:center;font-size:12px;color:var(--muted2);opacity:.55}
+.actgh{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 9px;padding:0 0 7px}
+.actgh.common{border-bottom:1px solid var(--accent)}
+.actgh.bgh{border-bottom:1px solid var(--line3)}
+.actgh h3{margin:0;font-size:13px;font-weight:650;letter-spacing:-.1px;display:flex;align-items:center;gap:6px}
+.actgh .ack{font-family:var(--mono);font-size:9.5px;color:var(--muted2);border:1px solid var(--line);border-radius:2px;padding:1px 5px;line-height:1.5}
+.actgh .ack.k-common{color:var(--accent);background:var(--sel-bg)}
+.actgh .ack.k-branch{color:var(--warn);background:var(--hit)}
+html[data-theme="dark"] .actgh .ack.k-branch{background:var(--warnbg)}
+.actgh p{margin:0;flex:1 1 240px;font-size:10.5px;line-height:1.6;color:var(--muted2);word-break:keep-all;overflow-wrap:anywhere}
+.actgh .acn{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--muted2)}
 @media (max-width:900px){
   .acpage{padding:14px 12px 26px}
   .acgrps{grid-template-columns:1fr}
@@ -1249,6 +1321,14 @@ html[data-theme="dark"] .acgh.common{border-bottom-color:var(--accent)}
   .acbar{gap:5px}
   .acpart{flex:1 1 auto;text-align:center}
   .acbar .btn{flex:1 1 auto}
+  .acview{flex:1 1 100%;margin:0 0 2px}
+  .acview button{flex:1 1 auto;text-align:center}
+  .actblwrap{max-height:66vh}
+  table.actbl{font-size:11px}
+  table.actbl col.c-cat{width:104px}
+  table.actbl tbody th .cnm{font-size:11px}
+  .actgh p{flex:1 1 100%;order:3}
+  .actgh .acn{order:2}
   .acbody{display:block}
   .ac-sidebar{width:auto;flex:0 1 auto;align-self:auto;padding:0 0 10px;margin:0 0 12px;
     border-right:0;border-bottom:1px solid var(--line)}
@@ -1268,7 +1348,15 @@ html[data-theme="dark"] .acgh.common{border-bottom-color:var(--accent)}
 }
 @media print{
   .acpage{padding:0;max-width:none}
-  .acpanel,.acbar,.achead .acacts,.ac-sidebar{display:none !important}
+  .acpanel,.acbar,.achead .acacts,.ac-sidebar,.acview{display:none !important}
+  .actblwrap{max-height:none;overflow:visible;border:1px solid #cbd5e1;margin:0 0 9pt;break-inside:auto}
+  .actblwrap.common,.actblwrap.branch{border-left-width:1px}
+  table.actbl{font-size:8pt;min-width:0 !important}
+  table.actbl thead th{position:static;background:#f1f5f9}
+  table.actbl tbody th{position:static;background:#fff}
+  table.actbl tbody td,table.actbl tbody th{border:1px solid #cbd5e1}
+  table.actbl tbody tr{break-inside:avoid}
+  .actgh{break-after:avoid}
   .acbody{display:block}
   .acmain{padding:0}
   .acitem{break-inside:avoid;border:1px solid #cbd5e1;padding:6pt 8pt;margin:0 0 5pt}
@@ -1525,7 +1613,7 @@ html[data-theme="dark"] .acgh.common{border-bottom-color:var(--accent)}
     <div class="achead">
       <div class="achead-main">
         <h2>통합계정 요건 추출</h2>
-        <p>글로벌 통합계정(다국가 SSO·통합 ID)을 운영할 때 <b>대상 국가와 기능 조건</b>을 고르면, 지켜야 할 <b>법적·기획·개발 요건</b>이 자동으로 추려집니다. 여러 국가에 동시에 출시할 때 <b>하나의 글로벌 기준으로 동일해도 되는 항목</b>과 <b>국가별로 반드시 분기해야 하는 항목</b>을 나누어 보여주고, 요건마다 <b>법제 비교표의 분류</b>(동의·처리방침·국외이전 등)를 붙여 왼쪽 분류 필터로도 좁혀 볼 수 있습니다. 요건마다 구현·이행 체크사항과 <b>근거 조문·공식 원문</b>을 붙였습니다. 요건 <b>104건</b> · 기준일 2026-11-26.</p>
+        <p>글로벌 통합계정(다국가 SSO·통합 ID)을 운영할 때 <b>대상 국가와 기능 조건</b>을 고르면, 지켜야 할 <b>법적·기획·개발 요건</b>이 자동으로 추려집니다. 여러 국가에 동시에 출시할 때 <b>하나의 글로벌 기준으로 동일해도 되는 항목</b>과 <b>국가별로 반드시 분기해야 하는 항목</b>을 나누어 보여주고, 요건마다 <b>법제 비교표의 분류</b>(동의·처리방침·국외이전 등)를 붙여 왼쪽 분류 필터로도 좁혀 볼 수 있습니다. 기본은 법제 비교표와 같은 <b>표 보기</b>로, 행은 법제 비교표 분류・열은 고른 국가가 되어 국가별 분기 요건을 나란히 대조합니다. <b>카드 보기</b>로 바꾸면 요건별 상세 카드를 볼 수 있습니다. 요건마다 구현·이행 체크사항과 <b>근거 조문·공식 원문</b>을 붙였습니다. 요건 <b>104건</b> · 기준일 2026-11-26.</p>
       </div>
       <div class="acacts">
         <button class="ckmini" type="button" id="acReset" title="국가·기능·파트·분류 조건을 기본값으로 되돌립니다">조건 초기화</button>
@@ -1547,7 +1635,11 @@ html[data-theme="dark"] .acgh.common{border-bottom-color:var(--accent)}
         <fieldset class="acgrp"><legend>이용자·거버넌스 조건</legend><div class="acopts" id="acGv"></div></fieldset>
       </div>
     </div>
-    <div class="acbar">
+    <div class="acbar" id="acBar">
+      <div class="acview" id="acView" role="group" aria-label="보기 방식">
+        <button type="button" data-acview="table" aria-pressed="true" title="법제 비교표처럼 분류 × 국가 표로 한눈에 비교">표 보기</button>
+        <button type="button" data-acview="card" aria-pressed="false" title="요건별 상세 카드로 보기">카드 보기</button>
+      </div>
       <div class="acparts" id="acParts" role="group" aria-label="담당 파트 필터"></div>
       <span class="spacer"></span>
       <button class="btn" type="button" id="acMd">Markdown 복사</button>
@@ -2812,7 +2904,7 @@ const AC_COND = Object.fromEntries((AC.conds||[]).map(c=>[c.id,c]));
 const ACNAME = Object.fromEntries(JUR.map(j=>[j.id,j.name]));
 const ACPART = {}; (AC.parts||[]).forEach(p=>{ ACPART[p.id]=p.name; });
 const AC_DEF = {jur:["kr","us","ca","eu","in"], fn:["sso","cookie","xfer"]};
-const acState = {jur:new Set(AC_DEF.jur), fn:new Set(AC_DEF.fn), part:"all", kind:"all", cat:"all"};
+const acState = {jur:new Set(AC_DEF.jur), fn:new Set(AC_DEF.fn), part:"all", kind:"all", cat:"all", view:"table"};
 const ACKIND = [["all","전체 요건"],["common","글로벌 공통"],["branch","국가별 분기"]];
 const ACCATS = AC.cats || [];
 const AC_CATMAP = Object.fromEntries(ACCATS.map(c=>[c.id,c]));
@@ -2912,6 +3004,8 @@ function acSync(){
   document.querySelectorAll("#acParts .acpart").forEach(b=>b.setAttribute("aria-pressed", b.dataset.part===acState.part?"true":"false"));
   document.querySelectorAll("#acKind .cspill").forEach(b=>b.setAttribute("aria-pressed", b.dataset.ackind===acState.kind?"true":"false"));
   document.querySelectorAll("#acCat .cspill").forEach(b=>b.setAttribute("aria-pressed", b.dataset.accat===acState.cat?"true":"false"));
+  document.querySelectorAll("#acView button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.acview===acState.view?"true":"false"));
+  const page=$("#acct"); if(page) page.classList.toggle("ac-wide", acState.view==="table");
   const jc=$("#acJurCount"); if(jc) jc.textContent=acState.jur.size+"개국 선택";
 }
 
@@ -2956,6 +3050,91 @@ function acCardHTML(r){
      '<span class="aclinks">'+(r.laws||[]).map(x=>lawChip(x[0],x[1]||"")).join('')+'</span></div>';
   if(r.note) h+='<p class="acnote2"><b>확인</b> '+acEsc(r.note)+'</p>';
   return h+'</article>';
+}
+/* ---- 표 보기(분류 × 국가 매트릭스) ---- */
+function acTagHTML(r){
+  return '<span class="actag '+r.pri+'">'+acEsc(acPri(r.pri))+'</span>'+
+    '<span class="actag">'+acEsc(ACPART[r.part]||r.part)+'</span>'+
+    (r.risk?'<span class="actag risk">고위험</span>':'');
+}
+function acSrcHTML(r){
+  let h='<p class="csrc"><b>근거</b> '+acEsc(r.cite)+'</p>';
+  const lk=(r.laws||[]).map(x=>lawChip(x[0],x[1]||"")).join("");
+  if(lk) h+='<div class="clks">'+lk+'</div>';
+  if(r.note) h+='<p class="cnt2"><b>확인</b> '+acEsc(r.note)+'</p>';
+  return h;
+}
+function acTblItem(r, mode){
+  // mode 'row' = 글로벌 공통 표(파트·근거는 각자 열) / 'cell' = 분기 매트릭스 셀(전부 한 칸)
+  let h='<div class="ait'+(r.k==="branch"?"":" common")+'" data-id="'+r.id+'">';
+  h+='<div class="at"><span class="aid">'+r.id.toUpperCase()+'</span><span class="h">'+acEsc(r.title)+'</span></div>';
+  if(mode!=="row") h+='<div class="tags">'+acTagHTML(r)+'</div>';
+  if(r.checks && r.checks.length) h+='<ul class="chs">'+r.checks.map(x=>'<li>'+acEsc(x)+'</li>').join('')+'</ul>';
+  if(mode!=="row") h+=acSrcHTML(r);
+  return h+'</div>';
+}
+function acCatTh(c, n){
+  return (c?'<span class="cic" aria-hidden="true">'+acEsc(c.icon)+'</span>':'')+
+    '<span class="cnm">'+acEsc(c?c.name:"기타")+'</span>'+
+    (n!=null?'<span class="ctn">'+n+'건</span>':'');
+}
+function acTableCommon(list){
+  // 글로벌 공통 기준 — 분류・요건/체크사항・파트·우선순위・법적 근거·공통 취지
+  const groups=ACCATS.map(c=>({c:c, list:list.filter(r=>r.cat===c.id)})).filter(g=>g.list.length);
+  const rest=list.filter(r=>!AC_CATMAP[r.cat]);
+  if(rest.length) groups.push({c:null, list:rest});
+  let h='<div class="actgh common"><h3><span class="ack k-common">공통</span> 글로벌 공통 기준 — 단일 UI·정책으로 통일</h3>'+
+    '<p>여러 국가를 함께 운영할 때 이 기준 하나로 커버되는 항목입니다. 국가별 조문이 달라도 구현은 하나로 갑니다.</p>'+
+    '<span class="acn">'+list.length+'건</span></div>';
+  h+='<div class="actblwrap common" tabindex="0" aria-label="글로벌 공통 기준 표 (가로 스크롤)">'+
+    '<table class="actbl actbl-common"><caption class="sr">글로벌 공통 기준. 분류・요건과 체크사항・담당 파트와 우선순위・법적 근거와 공통 취지.</caption>'+
+    '<colgroup><col class="c-cat"><col><col class="c-meta"><col class="c-cite"></colgroup>'+
+    '<thead><tr><th class="actcorner" scope="col"><span class="clbl">분류</span><span class="chint">법제 비교표 기준</span></th>'+
+    '<th scope="col">요건 / 체크사항<span class="achn">'+list.length+'건</span></th>'+
+    '<th scope="col">파트 · 우선순위</th>'+
+    '<th scope="col">법적 근거 · 공통 취지</th></tr></thead><tbody>';
+  groups.forEach(g=>{
+    g.list.forEach((r,i)=>{
+      h+='<tr'+(i%2?' class="ev"':'')+'>';
+      if(i===0) h+='<th scope="rowgroup" rowspan="'+g.list.length+'" class="actcc">'+acCatTh(g.c, g.list.length)+'</th>';
+      h+='<td>'+acTblItem(r,"row")+'</td>'+
+         '<td><div class="tags">'+acTagHTML(r)+'</div></td>'+
+         '<td>'+acSrcHTML(r)+'</td></tr>';
+    });
+  });
+  return h+'</tbody></table></div>';
+}
+function acTableBranch(s){
+  // 국가별 분기 비교 — 행 = 법제 비교표 분류, 열 = 선택 국가
+  const cols=JUR.filter(j=>acState.jur.has(j.id));
+  const cats=ACCATS.filter(c=>s.branch.some(r=>r.cat===c.id));
+  if(!cats.length) return "";
+  const narrow = window.innerWidth<=900;
+  const colw = narrow ? 168 : 200;
+  let h='<div class="actgh bgh"><h3>국가별 분기 요건 비교 <span class="ack k-branch">분기</span></h3>'+
+    '<p>행은 <b>법제 비교표 분류</b>, 열은 지금 고른 <b>대상 국가</b>입니다. 칸 안의 요건은 그 국가에서만 따로 구현·문서화해야 하는 항목이고, 해당 사항이 없는 칸은 —로 비웠습니다.</p>'+
+    '<span class="acn">'+s.branch.length+'건 · '+cats.length+'분류 × '+cols.length+'개국</span></div>';
+  h+='<div class="actblwrap branch" tabindex="0" aria-label="국가별 분기 요건 비교표 (가로 스크롤)">'+
+    '<table class="actbl actbl-jur" style="min-width:'+(128+cols.length*colw)+'px"><caption class="sr">국가별 분기 요건 비교표. 행은 법제 비교표 분류, 열은 선택한 국가.</caption><colgroup><col class="c-cat2">'+cols.map(()=>'<col>').join('')+'</colgroup>'+
+    '<thead><tr><th class="actcorner" scope="col"><span class="clbl">분류 / 국가</span><span class="chint">왼쪽 필터와 연동</span></th>'+
+    cols.map(j=>'<th class="actjh" scope="col"><div class="jh">'+FLAG(j.id)+'<span class="jn">'+acEsc(j.name)+'</span></div><span class="jl">'+acEsc(j.law)+'</span></th>').join('')+
+    '</tr></thead><tbody>';
+  cats.forEach(c=>{
+    const n=s.branch.filter(r=>r.cat===c.id).length;
+    h+='<tr><th scope="row" class="actcc">'+acCatTh(c, n)+'</th>';
+    cols.forEach(j=>{
+      const list=s.branch.filter(r=>r.cat===c.id && r.j===j.id);
+      h+='<td>'+(list.length?list.map(r=>acTblItem(r,"cell")).join(''):'<span class="actnone" aria-label="해당 없음">—</span>')+'</td>';
+    });
+    h+='</tr>';
+  });
+  return h+'</tbody></table></div>';
+}
+function acTableHTML(s, showC, showB){
+  let h="";
+  if(showC && s.common.length) h+=acTableCommon(s.common);
+  if(showB) h+=acTableBranch(s);
+  return h;
 }
 function acKindHTML(s){
   const box=$("#acKind"); if(!box) return;
@@ -3003,12 +3182,20 @@ function renderAcct(){
         ? '<div class="acempty"><b>이 분류에 해당하는 요건이 없습니다.</b><br>왼쪽 <b>법제 비교표 분류</b>를 ‘전체 분류’로 바꾸거나, 국가·기능 조건을 넓혀 보세요.</div>'
         : '<div class="acempty"><b>이 조건 조합에는 해당하는 요건이 없습니다.</b><br>기능 조건을 하나 이상 켜거나 담당 파트 필터를 ‘전체’로 바꿔 보세요.</div>';
     }else{
-      if(showC && s.common.length){
+      if(acState.view==="table"){
+        h=acTableHTML(s, showC, showB);
+        if(!h){
+          h = acState.kind==="common"
+            ? '<div class="acempty"><b>이 조합에는 글로벌 공통 항목이 없습니다.</b><br>모든 요건이 국가별 분기입니다. 왼쪽에서 ‘국가별 분기’를 골라 보세요.</div>'
+            : '<div class="acempty"><b>이 조합에는 국가별 분기 항목이 없습니다.</b><br>고른 국가에 공통 기준만 적용됩니다. 왼쪽에서 ‘글로벌 공통’을 골라 보세요.</div>';
+        }
+      }else if(showC && s.common.length){
         h+='<div class="acgh common"><h3><span class="ack k-common">공통</span> 글로벌 공통 기준 — 단일 UI·정책으로 통일</h3>'+
            '<p>여러 국가를 함께 운영할 때 이 기준 하나로 커버되는 항목입니다. 국가별 조문이 달라도 구현은 하나로 갑니다.</p>'+
            '<span class="acn">'+s.common.length+'건</span></div>';
         h+=s.common.map(acCardHTML).join("");
       }
+      if(acState.view==="card"){
       if(showB) JUR.forEach(j=>{
         if(!acState.jur.has(j.id)) return;
         const list=s.branch.filter(r=>r.j===j.id);
@@ -3022,6 +3209,7 @@ function renderAcct(){
         h='<div class="acempty"><b>이 조합에는 글로벌 공통 항목이 없습니다.</b><br>모든 요건이 국가별 분기입니다. 왼쪽에서 ‘국가별 분기’를 골라 보세요.</div>';
       if(acState.kind==="branch" && !s.branch.length)
         h='<div class="acempty"><b>이 조합에는 국가별 분기 항목이 없습니다.</b><br>고른 국가에 공통 기준만 적용됩니다. 왼쪽에서 ‘글로벌 공통’을 골라 보세요.</div>';
+      }
     }
   }
   $("#acWrap").innerHTML=h;
@@ -3150,8 +3338,15 @@ $("#acDoc").addEventListener("click",()=>{
 });
 $("#acPrint").addEventListener("click",()=>window.print());
 $("#acReset").addEventListener("click",()=>{
-  acState.jur=new Set(AC_DEF.jur); acState.fn=new Set(AC_DEF.fn); acState.part="all"; acState.kind="all"; acState.cat="all";
-  renderAcct(); toast("조건을 기본값(주요 5개국 · SSO·쿠키·국외이전 · 전체 분류)으로 되돌렸습니다");
+  acState.jur=new Set(AC_DEF.jur); acState.fn=new Set(AC_DEF.fn); acState.part="all"; acState.kind="all"; acState.cat="all"; acState.view="table";
+  renderAcct(); toast("조건을 기본값(주요 5개국 · SSO·쿠키·국외이전 · 전체 분류 · 표 보기)으로 되돌렸습니다");
+});
+/* 표 보기 ↔ 카드 보기 */
+$("#acView").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-acview]"); if(!b) return;
+  if(acState.view===b.dataset.acview) return;
+  acState.view=b.dataset.acview; renderAcct();
+  const top=$("#acWrap"); if(top) window.scrollTo({top:top.getBoundingClientRect().top+window.scrollY-70, behavior:"smooth"});
 });
 /* 법제 비교표 분류 사이드바 — 클릭으로 목록 필터 */
 $("#acCat").addEventListener("click",e=>{
@@ -3812,6 +4007,7 @@ function readShare(){
   if(p.has("cat")) out.cat = p.get("cat")||"";
   if(p.has("fn")) out.fn = p.get("fn")||"";
   if(p.has("pt")) out.pt = p.get("pt")||"";
+  if(p.has("vw")) out.vw = p.get("vw")||"";
   if(p.has("q")) out.q = p.get("q")||"";
   if(p.has("jur")){
     const r = (p.get("jur")||"").trim();
@@ -3832,7 +4028,7 @@ function shareState(){
   if(state.view==="cases")
     return "view=cases&reg="+state.csReg+"&type="+state.csType+"&sort="+state.csSort;
   if(state.view==="account-req")
-    return "view=account-req&jur="+[...acState.jur].join(",")+"&fn="+[...acState.fn].join(",")+"&pt="+acState.part;
+    return "view=account-req&jur="+[...acState.jur].join(",")+"&fn="+[...acState.fn].join(",")+"&pt="+acState.part+"&vw="+acState.view;
   if(state.view==="ai")
     return "view=ai&jur=all"+(aiState.q?"&q="+encodeURIComponent(aiState.q):"");
   const cat = (state.view==="table" && state.cat && state.cat!=="all") ? "&cat="+state.cat : "";
@@ -3863,6 +4059,7 @@ function applyShare(s){
     acState.fn = new Set(String(s.fn).split(",").map(x=>x.trim()).filter(x=>!!AC_COND[x]));
   }
   if(s.pt && ACPART[s.pt]) acState.part = s.pt;
+  if(s.vw==="card" || s.vw==="table") acState.view = s.vw;
   if(s.q !== undefined && s.view==="ai"){
     aiState.stat="all"; aiState.q = s.q;
     const q=$("#aiQ"); if(q) q.value = s.q;
